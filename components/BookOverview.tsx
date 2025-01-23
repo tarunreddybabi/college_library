@@ -20,6 +20,7 @@ const BookOverview = ({
   id,
   userId,
 }: Props) => {
+ 
   return (
     <section className="book-overview">
       <div className="flex flex-1 flex-col gap-5">
@@ -60,18 +61,17 @@ const BookOverview = ({
       </div>
       <div className="relative flex flex-1 justify-center">
         <div className="relative">
-          <BookCover
+        <BookCover
             variant="wide"
             className="z-10"
-            coverColor={color}
-            coverImage={cover}
+            coverColor={coverColor}
+            coverImage={coverUrl}
           />
           <div className="absolute left-16 top-10 rotate-12 opacity-40 max-sm:hidden">
-            <BookCover
+          <BookCover
               variant="wide"
-              className="z-10"
-              coverColor={color}
-              coverImage={cover}
+              coverColor={coverColor}
+              coverImage={coverUrl}
             />
           </div>
         </div>
