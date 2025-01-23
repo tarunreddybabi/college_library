@@ -7,8 +7,8 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-    <BookOverview {...sampleBooks}/>
-    <BookList title ="Latest Books" books={sampleBooks} containerClassName="mt-28"/>
+      <BookOverview {...sampleBooks[0]} userId="122" createdAt={null} />
+      <BookList title ="Latest Books" books={sampleBooks} containerClassName="mt-28"/>
     </>
     
       
