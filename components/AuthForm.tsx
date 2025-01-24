@@ -23,9 +23,10 @@ import {
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { FIELD_NAMES, FIELD_TYPES } from "@/constants";
-// import FileUpload from "@/components/FileUpload";
+import FileUpload from "@/components/FileUpload";
 import { toast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
+
 interface Props<T extends FieldValues> {
   schema: ZodType<T>;
   defaultValues: T;
@@ -40,6 +41,7 @@ const AuthForm = <T extends FieldValues>({
   onSubmit,
 }: Props<T>) => {
   const router = useRouter();
+
   const isSignIn = type === "SIGN_IN";
 
   const form: UseFormReturn<T> = useForm({
@@ -67,6 +69,7 @@ const AuthForm = <T extends FieldValues>({
       });
     }
   };
+
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-2xl font-semibold text-white">
@@ -94,15 +97,14 @@ const AuthForm = <T extends FieldValues>({
                   </FormLabel>
                   <FormControl>
                     {field.name === "universityCard" ? (
-                    //   <FileUpload
-                    //     type="image"
-                    //     accept="image/*"
-                    //     placeholder="Upload your ID"
-                    //     folder="ids"
-                    //     variant="dark"
-                    //     onFileChange={field.onChange}
-                    //   />
-                    <></>
+                      <FileUpload
+                        type="image"
+                        accept="image/*"
+                        placeholder="Upload your ID"
+                        folder="ids"
+                        variant="dark"
+                        onFileChange={field.onChange}
+                      />
                     ) : (
                       <Input
                         required
