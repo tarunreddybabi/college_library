@@ -22,7 +22,7 @@ const authenticator = async () => {
       const errorText = await response.text();
 
       throw new Error(
-        `Request failed with status ${response.status}: ${errorText}`,
+        `Request failed with status ${response.status}: ${errorText}`
       );
     }
 
@@ -55,10 +55,13 @@ const FileUpload = ({
   onFileChange,
   value,
 }: Props) => {
+
   const ikUploadRef = useRef(null);
+
   const [file, setFile] = useState<{ filePath: string | null }>({
     filePath: value ?? null,
   });
+
   const [progress, setProgress] = useState(0);
 
   const styles = {
@@ -176,13 +179,13 @@ const FileUpload = ({
         (type === "image" ? (
           <IKImage
             alt={file.filePath ?? ""}
-            path={file.filePath?? ""}
+            path={file.filePath ?? ""}
             width={500}
             height={300}
           />
         ) : type === "video" ? (
           <IKVideo
-            path={file.filePath??""}
+            path={file.filePath ?? ""}
             controls={true}
             className="h-96 w-full rounded-xl"
           />
