@@ -1,11 +1,21 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { signOut } from "@/auth";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { usePathname } from "next/navigation";
 import { cn, getInitials } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Session } from "next-auth";
+import { Button } from "./ui/button";
+import Logout from "./Logout";
 
 const Header = ({ session }: { session: Session }) => {
   const pathname = usePathname();
@@ -29,11 +39,25 @@ const Header = ({ session }: { session: Session }) => {
         </li>
         <li>
           <Link href="/my-profile">
-            <Avatar>
-              <AvatarFallback className="bg-amber-100">
-                {getInitials(session?.user?.name || "IN")}
-              </AvatarFallback>
-            </Avatar>
+          <Avatar>
+                <AvatarFallback className="bg-amber-100">
+                  {getInitials(session?.user?.name || "IN")}
+                </AvatarFallback>
+              </Avatar>
+          {/* <DropdownMenu>
+            <DropdownMenuTrigger>
+              <Avatar>
+                <AvatarFallback className="bg-amber-100">
+                  {getInitials(session?.user?.name || "IN")}
+                </AvatarFallback>
+              </Avatar>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem>
+                <Logout/>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu> */}
           </Link>
         </li>
       </ul>
