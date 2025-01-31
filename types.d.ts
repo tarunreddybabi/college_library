@@ -40,3 +40,17 @@ interface Book {
     bookId: string;
     userId: string;
   }
+
+  interface User {
+    createdAt: Date;                  
+    email: string;                     
+    fullName: string;                  
+    id: string;                        
+    lastActivityDate: Date;            
+    password: string;                  
+    role: "USER" | "ADMIN";            
+    status: "PENDING" | "ACTIVE" | "INACTIVE"; 
+    universityCard: string;            
+    universityId: number;              
+  }
+  
