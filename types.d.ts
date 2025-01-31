@@ -42,15 +42,15 @@ interface Book {
   }
 
   interface User {
-    createdAt: Date;                  
-    email: string;                     
-    fullName: string;                  
-    id: string;                        
-    lastActivityDate: Date;            
-    password: string;                  
-    role: "USER" | "ADMIN";            
-    status: "PENDING" | "ACTIVE" | "INACTIVE"; 
-    universityCard: string;            
-    universityId: number;              
+    id: string;
+    fullName: string;
+    email: string;
+    universityId: number;
+    password: string;
+    universityCard: string;
+    status: "PENDING" | "APPROVED" | "REJECTED" | null;
+    role: "USER" | "ADMIN" | null;
+    lastActivityDate: string | null;
+    createdAt: Date | null;           
   }
   
